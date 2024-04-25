@@ -1,0 +1,34 @@
+.write-logo{
+    color: azure;
+    margin-left: 8px;
+    font-size: 24px;
+}
+
+.settings-button{
+    margin-left: 10px;
+    background-color: #212529;
+    color: azure;
+    border: none;
+}
+
+
+.letters{
+    position: absolute;
+    right: 0;
+    font-size: x-large;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.settings-button-drop{
+    background-color: #212529;
+    color: azure;
+    border: none;
+    margin-top: 8px;
+}
+
+.color-letter{
+    color: azure;
+    font-family:'Times New Roman', Times, serif ;
+    background-color: #212529;
+    font-size: large;
+}

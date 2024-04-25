@@ -1,0 +1,46 @@
+<h2>Lista de Produtos</h2><br/>
+<div class="alert alert-success" role="alert" *ngIf="msgSuccess==true">
+    {{menssageDelete}}
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="msgFail==true">
+    {{menssageDelete}}
+  </div><br/>
+<table class="table table-hover">
+<thead class="table-dark">
+    <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Produto</th>
+    <th scope="col">Preço R$</th>
+    <th scope="col">Descrição</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let product of products">
+   <td>{{product.id}}</td> 
+   <td>{{product.name}}</td> 
+   <td>{{product.price}}</td> 
+   <td>{{product.description}}</td>
+   <td><a class="btn-color" routerLink="/product-form/{{product.id}}"><fa-icon [icon]="faPencil"></fa-icon></a></td> 
+   <td><a class="btn-color" (click)="preparedDelete(product.id)"><fa-icon [icon]="faTrash"></fa-icon></a></td>    
+</tr>
+</tbody>
+</table>
+
+<div class="modal" id="modalDelete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirmar</h3>
+            </div>
+            <div class="modal-body">
+                <p>Deseja realmente deletar o produto {{productSelect.name}} ?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success"(click)="deleteProduct(productSelect.id)">Confirmar</button>
+                <button class="btn btn-danger" (click)="closeModalDelete()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>

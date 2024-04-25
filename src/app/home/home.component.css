@@ -1,0 +1,8 @@
+.larger-letter{
+    display: flex;
+    font-size: 32pt;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    margin-top: 350px;
+}
