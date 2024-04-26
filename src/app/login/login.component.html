@@ -1,0 +1,71 @@
+<div id="layoutAuthentication">
+    <div id="LayoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header handmade-card-dark ">
+                                <h3 class="text-center font-weight-light my-4">
+                                    {{signingup? 'Cadastro de novo usuário':'Entrar'}}
+                                </h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-danger" *ngIf="loginError==true">
+                                    Login e/ou senha incorreto(a)
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="alert alert-success" role="alert" *ngIf="successSave== true">
+                                            {{msgAlert}}
+                                        </div>
+                                        <div class="alert alert-danger" role="alert" *ngIf="failSave==true">
+                                            {{msgAlert}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <form #login="ngForm" (submit)="onSubmit()">
+                                    <div class="form-group">
+                                        <label class="small mb-1">Login</label>
+                                        <input type="text" name="username" [(ngModel)]="userRegister.login"
+                                            placeholder="Digite seu login" class="form-control py-4"
+                                            autocomplete="off" />
+                                        <div class="form-group">
+                                            <label class="small mb-1">Senha</label>
+                                            <fa-icon [icon]="faEye" (click)="seePassword()"
+                                                *ngIf="showPassword==true"></fa-icon>
+                                            <fa-icon [icon]="faEyeSlash" (click)="seePassword()"
+                                                *ngIf="showPassword==false"></fa-icon>
+                                            <input type="password" name="password" [(ngModel)]="userRegister.password" 
+                                                placeholder="Digite sua senha" class="form-control py-4 "
+                                                id="password" />
+                                        </div>
+                                        <div
+                                            class="form-group d-flex align-items-center justify-content-center-between mt-4 mb-0 alignbutton">
+                                            <button type="submit" class="btn btn-dark sizebutton"
+                                                *ngIf="!signingup">Enviar</button>
+                                        </div>
+                                        <div
+                                            class="form-group d-flex align-items-center justify-content-center-between mt-4 mb-0">
+                                            <button type="button" class="btn btn-dark" *ngIf="signingup"
+                                                (click)="singn()">Cadastrar</button>
+                                            <button type="button" class="btn btn-warning ml-1"
+                                                (click)="cancelSign()" *ngIf="signingup">Cancelar</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="small linkcadastrar">
+                                  <a href="#" (click)="preparedSign($event)">
+                                        Não possui Usuário? Cadastre-se!
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

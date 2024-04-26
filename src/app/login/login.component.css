@@ -1,0 +1,32 @@
+.alignbutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sizebutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 632px;
+}
+
+fa-icon {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    z-index: 200;
+    top: 50px;
+    left: 80%;
+    cursor: pointer;
+    color: #6c757d;
+}
+
+.handmade-card-dark {
+    background-color: #212529;
+    color: azure;
+}
+
+.btn-warning{
+    margin-left: 100px;
+}

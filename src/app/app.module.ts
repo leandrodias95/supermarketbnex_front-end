@@ -10,8 +10,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductFormComponent } from './product/product-form/product-form.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ProductService } from './service/product.service';
+import { LoginComponent } from './login/login.component';
+import { InterceptorInterceptor } from './interceptor/interceptor.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { ProductService } from './service/product.service';
     LayoutComponent,
     NavbarComponent,
     ProductFormComponent,
-    ProductListComponent
+    ProductListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,9 @@ import { ProductService } from './service/product.service';
     FormsModule,
     HttpClientModule    
   ],
-  providers: [ProductService],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass:InterceptorInterceptor, multi: true},
+    ProductService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
